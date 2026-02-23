@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const phone = document.getElementById('phone').value;
 
             // WhatsApp Message Formatting
-            const businessNumber = "919876543210"; 
+            const businessNumber = "918456193640"; 
             const message = `Hello BrightPath NEET Academy, I would like to book a counseling session.%0A%0A*Name:* ${name}%0A*Course:* ${course}%0A*Phone:* ${phone}`;
 
             // Redirect to WhatsApp
