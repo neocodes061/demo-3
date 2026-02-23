@@ -1,0 +1,25 @@
+:root {
+    /* Refined accessible color palette */
+    --primary: #0b66b1; /* main brand blue */
+    --accent: #ff7a18;  /* warm accent */
+    --success: #27ae60;
+    --dark: #162029;
+    --light: #f6f9fb;
+    --white: #ffffff;
+    --text: #334155; /* slightly darker for contrast */
+    --shadow: 0 6px 18px rgba(16,24,40,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--white);
+}
+
+h1, h2, h3 { color: var(--dark); margin-bottom: 1rem; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; border-radius: 8px; }

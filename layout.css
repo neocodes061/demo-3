@@ -1,0 +1,122 @@
+.container { max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+
+/* Mobile-first grid defaults: single column; expanded in larger viewports */
+.grid-2, .grid-3, .grid-4 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+
+section { padding: 60px 0; }
+.text-center { text-align: center; }
+
+/* Navbar */
+.navbar {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 25px; align-items: center; z-index: 1002; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); font-weight: bold; position: relative; }
+
+/* Mobile hamburger button and mobile menu (default mobile-first) */
+.hamburger {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    background: rgba(11,102,177,0.06);
+    border: 1px solid rgba(11,102,177,0.10);
+    border-radius: 12px;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .22s ease, box-shadow .22s ease, transform .12s ease;
+}
+.hamburger:hover { background: rgba(11,102,177,0.10); box-shadow: 0 8px 20px rgba(11,102,177,0.06); transform: translateY(-1px); }
+.hamburger:focus { outline: none; box-shadow: 0 0 0 4px rgba(11,102,177,0.10); }
+.hamburger .bar {
+    display: block;
+    width: 22px;
+    height: 2.6px;
+    background: var(--dark);
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .18s ease, background .18s ease;
+}
+.hamburger.is-active {
+    background: var(--primary);
+    border-color: transparent;
+}
+.hamburger.is-active .bar { background: var(--white); }
+.hamburger.is-active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.is-active .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Hero */
+.hero {
+    background: linear-gradient(rgba(26, 77, 140, 0.9), rgba(26, 77, 140, 0.9)), url('https://images.unsplash.com/photo-1523050335392-93851179ae22?auto=format&fit=crop&q=80&w=1400');
+    background-size: cover;
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+}
+.hero h1 { color: var(--white); font-size: 2.8rem; }
+
+/* Footer */
+.footer { background: var(--dark); color: var(--white); padding: 50px 0 20px; }
+.footer-links li { margin-bottom: 10px; }
+
+/* Mobile defaults for nav: hidden links, expanded via `.open` */
+.btn-nav { display: none; }
+.nav-links {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(26,77,140,0.98), rgba(34,154,211,0.95));
+    padding: 18px 16px;
+    box-shadow: 0 10px 30px rgba(10,25,50,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .45s cubic-bezier(.2,.9,.2,1), opacity .35s ease;
+    z-index: 1001;
+}
+.nav-links.open { max-height: 420px; opacity: 1; }
+.nav-links li { margin: 10px 0; list-style: none; }
+.nav-links a { display: block; padding: 12px 18px; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 700; transition: transform .18s ease, box-shadow .18s ease; position: relative; }
+.nav-links a:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
+.nav-links a::after { content: ''; position: absolute; left: 18px; bottom: 8px; height: 3px; width: 0; background: var(--accent); transition: width .28s ease; border-radius: 2px; }
+.nav-links a:hover::after { width: calc(100% - 36px); }
+.hero h1 { font-size: 1.8rem; }
+
+/* Desktop and larger screens */
+@media (min-width: 769px) {
+    .container { padding: 0 20px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    .hamburger { display: none; }
+    .btn-nav { display: inline-block; }
+    .nav-links {
+        display: flex;
+        position: static;
+        width: auto;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+    }
+    .nav-links li { margin: 0; }
+    .nav-links a { color: inherit; padding: 0; background: transparent; font-weight: 600; }
+    .hero h1 { font-size: 2.8rem; }
+}
