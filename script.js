@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // WhatsApp Message Formatting
             const businessNumber = "918456193640"; 
-            const message = `Hello BrightPath NEET Academy, I would like to book a counseling session.%0A%0A*Student Name:* ${encodeURIComponent(name)}%0A*Course Interest:* ${encodeURIComponent(course)}%0A*Contact Number:* ${formattedPhone}`;
+            const message = `Hello BrightPath NEET Academy, I would like to book a counseling session.%0A%0A*Name:* ${name}%0A*Course:* ${course}%0A*Phone:* ${phone}`;
 
             // Redirect to WhatsApp
             window.open(`https://wa.me/${businessNumber}?text=${message}`, '_blank');
