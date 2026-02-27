@@ -12,35 +12,46 @@ section { padding: 80px 0; }
 
 /* Navbar */
 .navbar {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
-    padding: 15px 0;
+    padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid var(--border);
+    margin: 0;
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
-.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+.logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); transition: var(--transition); }
+.logo:hover { transform: scale(1.05); }
 .logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 25px; align-items: center; z-index: 1002; }
-.nav-links a:hover, .nav-links a.active { color: var(--primary); font-weight: bold; position: relative; }
+.nav-links { display: flex; gap: 32px; align-items: center; z-index: 1002; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); font-weight: 600; position: relative; }
 
 /* Mobile hamburger button and mobile menu (default mobile-first) */
 .hamburger {
     display: flex;
     width: 48px;
     height: 48px;
-    background: rgba(11,102,177,0.06);
-    border: 1px solid rgba(11,102,177,0.10);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.15);
     border-radius: 12px;
     padding: 8px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background .22s ease, box-shadow .22s ease, transform .12s ease;
+    transition: var(--transition);
 }
-.hamburger:hover { background: rgba(11,102,177,0.10); box-shadow: 0 8px 20px rgba(11,102,177,0.06); transform: translateY(-1px); }
-.hamburger:focus { outline: none; box-shadow: 0 0 0 4px rgba(11,102,177,0.10); }
+.hamburger:hover { 
+    background: rgba(37, 99, 235, 0.12); 
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15); 
+    transform: translateY(-1px); 
+}
+.hamburger:focus { 
+    outline: none; 
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); 
+}
 .hamburger .bar {
     display: block;
     width: 22px;
@@ -61,13 +72,45 @@ section { padding: 80px 0; }
 
 /* Hero */
 .hero {
-    background: linear-gradient(rgba(26, 77, 140, 0.9), rgba(26, 77, 140, 0.9)), url('https://images.unsplash.com/photo-1523050335392-93851179ae22?auto=format&fit=crop&q=80&w=1400');
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(245, 158, 11, 0.85)), url('https://images.unsplash.com/photo-1523050335392-93851179ae22?auto=format&fit=crop&q=80&w=1400');
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--white);
     padding: 100px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
 }
-.hero h1 { color: var(--white); font-size: 2.8rem; }
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 { 
+    color: var(--white); 
+    font-size: 2.2rem; 
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 0.8s ease-out;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
 
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -106,7 +149,6 @@ section { padding: 80px 0; }
 .nav-links a:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
 .nav-links a::after { content: ''; position: absolute; left: 18px; bottom: 8px; height: 3px; width: 0; background: var(--accent); transition: width .28s ease; border-radius: 2px; }
 .nav-links a:hover::after { width: calc(100% - 36px); }
-.hero h1 { font-size: 1.8rem; }
 
 /* Desktop and larger screens */
 @media (min-width: 769px) {
