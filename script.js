@@ -206,9 +206,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close when clicking outside the nav container
+        // Close when clicking outside the header actions (mobile nav)
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-container')) {
+            if (!e.target.closest('.header-actions')) {
                 hamburger.classList.remove('is-active');
                 navLinks.classList.remove('open');
                 hamburger.setAttribute('aria-expanded', 'false');

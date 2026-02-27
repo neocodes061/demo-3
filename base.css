@@ -1,23 +1,25 @@
+/* Base */
 :root {
-    /* Modern gradient color palette */
-    --primary: #0a66c2; /* premium blue */
-    --primary-light: #1e7ad9;
-    --primary-dark: #0551a8;
-    --accent: #ff6b35;  /* energetic orange */
-    --accent-light: #ff8c5a;
-    --success: #10b981; /* modern green */
+    /* High-contrast professional palette: Dark Navy & Gold */
+    --primary: #1e293b; /* Dark Navy */
+    --primary-light: #263247;
+    --primary-dark: #0f1724;
+    --accent: #fbbf24;  /* Gold */
+    --accent-light: #ffd166;
+    --success: #10b981;
     --danger: #ef4444;
     --warning: #f59e0b;
-    --dark: #1a202c; /* deep dark */
+    --dark: #0b1320;
     --light: #f8fafc;
-    --light-2: #ecf0f1;
+    --light-2: #eef2f7;
     --white: #ffffff;
-    --text: #2d3748; /* readable dark gray */
-    --text-light: #718096;
-    --border: #e2e8f0;
-    --shadow: 0 10px 30px rgba(0,0,0,0.08);
-    --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+    --text: #0f1724;
+    --text-light: #6b7280;
+    --border: rgba(255,255,255,0.06);
+    --shadow: 0 10px 30px rgba(2,6,23,0.12);
+    --shadow-lg: 0 20px 50px rgba(2,6,23,0.18);
     --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --nav-height: 72px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,6 +33,9 @@ body {
     background-color: var(--white);
     font-size: 16px;
 }
+
+/* Reserve space for fixed header */
+body { padding-top: var(--nav-height); }
 
 h1, h2, h3, h4, h5, h6 { color: var(--dark); margin-bottom: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
 h1 { font-size: 2.75rem; line-height: 1.2; }
